@@ -7,6 +7,9 @@ admin.site.unregister(Group)
 admin.site.site_title='IOT Project'
 admin.site.site_header='Iot Project'
 admin.site.index_title='Iot Project'
+
+admin.site.site_url ='/api/'
+
 class DeviceAdmin(admin.ModelAdmin):
     list_display=('id','uptime','memory_usage','is_active','user')
 

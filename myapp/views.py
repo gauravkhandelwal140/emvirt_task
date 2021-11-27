@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 
@@ -42,7 +42,7 @@ class Sign_up(viewsets.ViewSet):
 
 
 class Device_view(viewsets.ModelViewSet):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
     serializer_class = DeviceSerializers
     queryset = Device.objects.all()
 
@@ -74,6 +74,7 @@ class Device_view(viewsets.ModelViewSet):
 
 
 class Device_list(viewsets.ViewSet):
+    permission_classes = [IsAuthenticated]
     def retrieve(self, request, pk=None):
         try:
             user_id=User.objects.get(id=pk)
