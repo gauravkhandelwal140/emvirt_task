@@ -29,7 +29,7 @@ class Sign_up(viewsets.ViewSet):
             user.save()
             Token.objects.create(user=user)
             serilizer=User_serializers(user)
-            m="User create Secufully"
+            m="User Create Successful"
             s=1003
             d = serilizer.data
             return response_handler(message=m, status=s, data=d)
@@ -61,7 +61,7 @@ class Device_view(viewsets.ModelViewSet):
                 d.save()
 
             serilizer=DeviceSerializers_res(device)
-            m="Device Add Secufully"
+            m="Device Add Successful"
             s=True
             d = serilizer.data
             return response_handler(message=m, status=s, data=d)
